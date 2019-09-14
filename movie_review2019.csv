@@ -1,0 +1,26 @@
+reviewer_id,last_name,first_name,movie_name,rating
+1,Baggins,Bilbo,Fast & Furious Presents: Hobbs & Shaw,4
+1,Baggins,Bilbo,Spider-Man: Far From Home,5
+1,Baggins,Bilbo,Stuber,1
+1,Baggins,Bilbo,The Lion King,4
+1,Baggins,Bilbo,Toy Story 4,5
+2,Baggins,Frodo,Fast & Furious Presents: Hobbs & Shaw,3
+2,Baggins,Frodo,Spider-Man: Far From Home,2
+2,Baggins,Frodo,Stuber,3
+2,Baggins,Frodo,The Lion King,5
+2,Baggins,Frodo,Toy Story 4,5
+3,Gamgee,Samwise,Fast & Furious Presents: Hobbs & Shaw,4
+3,Gamgee,Samwise,Spider-Man: Far From Home,4
+3,Gamgee,Samwise,Stuber,5
+3,Gamgee,Samwise,The Lion King,4
+3,Gamgee,Samwise,Toy Story 4,5
+4,Took,Peregrin,Fast & Furious Presents: Hobbs & Shaw,5
+4,Took,Peregrin,Spider-Man: Far From Home,2
+4,Took,Peregrin,Stuber,5
+4,Took,Peregrin,The Lion King,3
+4,Took,Peregrin,Toy Story 4,4
+5,Brandybuck,Meriadoc,Fast & Furious Presents: Hobbs & Shaw,1
+5,Brandybuck,Meriadoc,Spider-Man: Far From Home,1
+5,Brandybuck,Meriadoc,Stuber,4
+5,Brandybuck,Meriadoc,The Lion King,1
+5,Brandybuck,Meriadoc,Toy Story 4,3

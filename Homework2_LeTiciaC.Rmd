@@ -1,0 +1,81 @@
+---
+title: "DATA607_Homework2"
+output: html_document 
+--- 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Load packages to connect to MySQL database
+```{r}
+install.packages("RMySQL", repos = "http://cran.us.r-project.org")
+install.packages("Rtools", repos = "http://cran.us.r-project.org")
+library(DBI)
+library(RMariaDB)
+library(ggplot2)
+```
+
+
+Connect to MySQL database
+```{r}
+source("login_credentials.R")
+mydb = dbConnect(RMariaDB::MariaDB(), user=username, password=password, dbname='movie',host='localhost')
+```
+
+
+Query movies table from SQL
+```{r}
+dbGetQuery(mydb,'SELECT *
+           FROM movie.movie_review
+           ORDER BY review_id') 
+```
+
+
+Load results from query to dataframe 
+```{r}
+movie_review_results <- dbGetQuery(mydb, 'SELECT * 
+            FROM movie.movie_review
+            ORDER BY review_id')
+
+movie_review_results
+```
+
+
+Testing visualizations using ggplot
+```{r}
+ggplot(movie_review_results, aes(x = rating)) + geom_bar()
+```
+
+
+Bar graph with labels
+```{r}
+ggplot(movie_review_results, aes(x = rating)) + theme_bw() + geom_bar() + labs(y = "Rating Count", x = "Rating", title = "Overall Rating Totals")
+```
+
+
+Adding some color to the graph to assist with the data visualization
+```{r}
+ggplot(movie_review_results, aes(x = rating, fill = movie_name)) + theme_bw() + geom_bar() + labs(y = "Rating Count", x = "Rating", title = "Overall Ratings")
+```
+
+
+Grouping ratings based on reviewer ID. 
+```{r}
+ggplot(movie_review_results, aes(x = rating, fill = movie_name)) + theme_bw() + facet_wrap(~ reviewer_id) + geom_bar() + labs(y = "Rating Count", x = "Rating", title = "Ratings Grouped by Reviewer ID")
+```
+
+
+Grouping ratings based on reviewer first name. 
+```{r}
+ggplot(movie_review_results, aes(x = rating, fill = movie_name)) + theme_bw() + facet_wrap(~ first_name) + geom_bar() + labs(y = "Rating Count", x = "Rating", title = "Ratings Grouped by Reviewer Name")
+```
+
+
+Plaing with boxplot for the same ratings but I prefer the colored bar graph
+```{r}
+ggplot(movie_review_results, aes(x = movie_name, y = rating)) + theme_bw() + geom_boxplot() + labs(y = "Movie Rating", x = "Movie Name", title = "Movie Ratings")
+```
+
+
